@@ -6,12 +6,15 @@ An Online Bookstore web application built using JSP and Servlet technology that 
 
 - **User Registration & Login**: Users can create an account and log in securely.
   
-  <img src="images/register.png" alt="Registration Page" width="500" /> <img src="images/login.png" alt="Registration Page" width="500" />
+<div style="display: flex; justify-content: space-around;">
+    <img src="images/register.png" alt="Registration Page" width="300" />
+    <img src="images/another_image.png" alt="Another Image" width="300" />
+</div>
 
 
-- **Book Search**: Search for books by title, author, genre, ISBN, or price range. Results are dynamically displayed and updated.
+- **Book Search**: Search for books by title, author or ISBN. Results are dynamically displayed and updated.
   
-  ![Search Page](path_to_search_image.png)
+    <img src="book search/register.png" alt="Registration Page" width="300" />
 
 - **Book Details**: Each book has its own dedicated page displaying detailed information like price, author, and summary.
   
