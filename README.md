@@ -7,8 +7,8 @@ An Online Bookstore web application built using JSP and Servlet technology that 
 - **User Registration & Login**: Users can create an account and log in securely.
   
 <div style="display: flex; justify-content: space-around;">
-    <img src="images/register.png" alt="Registration Page" width="500" />
-    <img src="images/login.png" alt="Login page" width="500" />
+    <img src="images/register.png" alt="Registration Page" width="600" />
+    <img src="images/login.png" alt="Login page" width="600" />
 </div>
 
 
