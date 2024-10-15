@@ -1,145 +1,98 @@
-<%@ page import="javax.servlet.http.Cookie" %>
-<%@ page import="java.sql.*" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.mycompany.assignment3.Book" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Cart</title>
+    <title>Book Search Results</title>
     
     <style>
-    body {
-        font-family: 'Poppins', sans-serif;
-        background: linear-gradient(135deg, #74ebd5, #acb6e5);
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center; /* Center the flex container vertically */
-        align-items: center; /* Center the flex container horizontally */
-        margin: 0;
-    }
-    
-    h2 {
-        margin: 0;
-        color: #333;
-    }
-
-    table {
-        width: 80%;
-        margin: 20px auto;
-        border-collapse: collapse;
-        background-color: rgba(255, 255, 255, 0.9);
-        box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
-        border-radius: 15px;
-    }
-    
-    th, td {
-        padding: 15px;
-        text-align: center;
-        border-bottom: 1px solid #ddd;
-    }
-    
-    th {
-        background-color: #ff6b6b;
-        color: white;
-    }
-    
-    button {
-        padding: 15px;
-        background-color: #ff6b6b;
-        color: white;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        font-size: 18px;
-        margin: 10px;
-        transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-        background-color: #ff4757;
-    }
-
-    .button-container {
-        display: flex;
-        justify-content: space-between;
-        width: 80%;
-        margin-top: 20px;
-    }
-</style>
-
+        body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center; /* Center the flex container horizontally */
+                align-items: center; /* Center the flex container vertically */
+                height: 100vh; /* Ensure that the content fills the screen */
+                margin: 0;
+            }
+            
+        table{
+                width: 90%;
+                margin: 20px auto;
+                border-collapse: collapse;
+                background-color: #fff;
+            }
+            
+        th, td{
+                padding: 12px;
+                text-align: center;
+            }
+         
+        button {
+                padding: 10px;
+                background-color: #747576;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+    </style>    
 </head>
 <body>
 
-    <h2>Your Cart</h2>
+    <%
+        String message = (String) request.getAttribute("message");
+        List<Book> books = (List<Book>) request.getAttribute("books");
 
-    <table border="1">
+        if (message != null) {
+            out.println("<p>" + message + "</p>");
+        } else if (books != null && !books.isEmpty()) {
+    %>
+    <form action="addToCart" method="post">
+    <table>
         <tr>
+            <th>Add to Cart</th>
             <th>Book Name</th>
             <th>ISBN</th>
-            <th>Price (in INR)</th>
+            <th>Author</th>
+            <th>Price (INR)</th>
             <th>Quantity</th>
         </tr>
 
         <%
-            // Get cookies
-            Cookie[] cookies = request.getCookies();
-            List<String> isbns = new ArrayList<>();
-            List<String> quantities = new ArrayList<>();
-
-            if (cookies != null) {
-                for (Cookie cookie : cookies) {
-                    if (cookie.getName().startsWith("book")) {
-                        isbns.add(cookie.getValue());
-                    } else if (cookie.getName().startsWith("quantity")) {
-                        quantities.add(cookie.getValue());
-                    }
-                }
-            }
-
-            // Database connection
-            Connection conn = null;
-            PreparedStatement ps = null;
-            ResultSet rs = null;
-
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/java", "root", "");
-
-                for (int i = 0; i < isbns.size(); i++) {
-                    String sql = "SELECT book_name, price, ISBN FROM Books WHERE ISBN = ?";
-                    ps = conn.prepareStatement(sql);
-                    ps.setString(1, isbns.get(i));
-                    rs = ps.executeQuery();
-
-                    if (rs.next()) {
+            for (int i = 0; i < books.size(); i++) {
+                    Book book = books.get(i);
         %>
-                        <tr>
-                            <td><%= rs.getString("book_name") %></td>
-                            <td><%= rs.getString("ISBN") %></td>
-                            <td><%= rs.getDouble("price") %></td>
-                            <td><%= quantities.get(i) %></td>
-                        </tr>
+            <tr>
+                <td class="checkbox">
+                        <input type="checkbox" name="selectedBooks" value="<%= book.getISBN() %>">
+                </td>
+                <td><%= book.getBookName() %></td>
+                <td><%= book.getISBN() %></td>
+                <td><%= book.getAuthorName() %></td>
+                <td><%= book.getPrice() %></td>
+                <td>
+                        <input type="number" name="qty<%= i %>" class="textbox" value="1" min="1">
+                </td>
+            </tr>
         <%
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                if (rs != null) rs.close();
-                if (ps != null) ps.close();
-                if (conn != null) conn.close();
             }
         %>
     </table>
+    <div style="text-align: center; margin-top: 20px;">
+            <button type="submit">Add To Cart</button>
+        </div>
+    </form>
     
-    <div class="button-container">
-        <!-- Button to go back to previous page -->
-        <button onclick="window.location.href='books.jsp';">Go Back</button>
-        
-        <!-- Button to proceed to billing page -->
-        <button onclick="window.location.href='billing.jsp';">Proceed to Billing</button>
-    </div>
+    <%
+        } else {
+
+            out.println("<p>No results found.</p>");
+        }
+    %>
+
 </body>
 </html>
