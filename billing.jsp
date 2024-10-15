@@ -9,78 +9,49 @@
     <title>Billing Page</title>
     
     <style>
-    body {
-        font-family: 'Poppins', sans-serif; /* Match the font-family used in the cart page */
-        background: linear-gradient(135deg, #74ebd5, #acb6e5); /* Match the gradient background */
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
-        color: #333; /* Match the text color used in the cart page */
-    }
-    
-    h2 {
-        color: #333; /* Match heading color */
-        margin-bottom: 20px;
-        font-size: 32px; /* Match the font size used in the cart page */
-        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Match text shadow effect */
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
 
-    table {
-        width: 80%;
-        margin: 20px auto;
-        border-collapse: collapse;
-        background-color: rgba(255, 255, 255, 0.9); /* Match the table background color */
-        box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2); /* Match the box shadow */
-        border-radius: 15px;
-    }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        
+        .total-row, .tax-row, .grand-total-row {
+            font-weight: bold;
+        }
 
-    th, td {
-        padding: 15px;
-        text-align: center;
-        border-bottom: 1px solid #ddd;
-    }
-    
-    th {
-        background-color: #ff6b6b; /* Match the header color from the cart page */
-        color: white;
-        font-size: 18px;
-        text-transform: uppercase;
-    }
-    
-    td {
-        background-color: rgba(255, 255, 255, 0.9); /* Match the table cell background color */
-    }
-    
-    tr:hover {
-        background-color: #ffd1c1; /* Match the hover effect from the cart page */
-    }
+        button {
+            padding: 10px;
+            background-color: #747576;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
 
-    .total-row, .tax-row, .grand-total-row {
-        font-weight: bold;
-        color: #ff6b6b; /* Match color for totals and tax rows */
-    }
-
-    button {
-        padding: 15px;
-        background-color: #ff6b6b; /* Match button color from the cart page */
-        color: white; /* Match button text color */
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        font-size: 18px;
-        margin-top: 20px;
-        transition: background-color 0.3s ease;
-        width: 200px; /* Adjust width to be consistent */
-    }
-
-    button:hover {
-        background-color: #ff4757; /* Match button hover effect */
-    }
-</style>
-
+        button:hover {
+            background-color: #5c5d5e;
+        }
+    </style>
 </head>
 <body>
 
