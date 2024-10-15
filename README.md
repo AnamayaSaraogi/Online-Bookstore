@@ -6,7 +6,7 @@ An Online Bookstore web application built using JSP and Servlet technology that 
 
 - **User Registration & Login**: Users can create an account and log in securely.
   
-  ![Registration Page]("C:\Users\anama\OneDrive\Pictures\Screenshots\register.png")
+  ![Registration Page](images/register.png)
 
 - **Book Search**: Search for books by title, author, genre, ISBN, or price range. Results are dynamically displayed and updated.
   
