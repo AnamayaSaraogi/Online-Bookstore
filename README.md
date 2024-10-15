@@ -14,11 +14,11 @@ An Online Bookstore web application built using JSP and Servlet technology that 
 
 - **Book Search**: Search for books by title, author or ISBN. Results are dynamically displayed and updated.
   
-    <img src="book search/register.png" alt="Search for books" width="300" />
+    <img src="images/book search.png" alt="Search for books" width="300" />
 
-- **Book Details**: Each book has its own dedicated page displaying detailed information like price, author, and summary.
+- **Book Results**: Search results will be displayed along with a checkbox (to select specific books to be added in cart) and counter (to specify the number of selected books).
   
-  ![Book Details Page](path_to_book_details_image.png)
+  <img src="images/book results.png" alt="Search results" width="300" />
 
 - **Shopping Cart**: Users can add books to a shopping cart, adjust quantities, and remove items before proceeding to checkout.
   
