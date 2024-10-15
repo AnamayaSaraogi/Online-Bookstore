@@ -5,30 +5,22 @@ An Online Bookstore web application built using JSP and Servlet technology that 
 ## Features
 
 - **User Registration & Login**: Users can create an account and log in securely.
-  
 <div style="display: flex; justify-content: space-around;">
-    <img src="images/register.png" alt="Registration Page" width="600" />
-    <img src="images/login.png" alt="Login page" width="600" />
+    <img src="images/register.png" alt="Registration Page" width="500" />
+    <img src="images/login.png" alt="Login page" width="500" />
 </div>
 
-
 - **Book Search**: Search for books by title, author or ISBN. Results are dynamically displayed and updated.
-  
-    <img src="images/book search.png" alt="Search for books" width="300" />
+    <img src="images/book search.png" alt="Search for books" width="500" />
 
 - **Book Results**: Search results will be displayed along with a checkbox (to select specific books to be added in cart) and counter (to specify the number of selected books).
-  
-  <img src="images/book results.png" alt="Search results" width="300" />
+    <img src="images/book results.png" alt="Search results" width="500" />
 
-- **Shopping Cart**: Users can add books to a shopping cart, adjust quantities, and remove items before proceeding to checkout.
-  
-  ![Cart Page](path_to_cart_image.png)
+- **Billing**: Generate an itemized bill and order summary for the selected purchases.
+    <img src="images/billing.png" alt="Bill" width="500" />
 
-- **Order Management**: Generate an itemized bill and order summary for the selected purchases.
-  
-  ![Order Summary](path_to_order_summary_image.png)
-
-- **Session Management**: User sessions are maintained throughout the browsing experience, allowing users to continue their session as long as they're logged in.
+- **Complete**: End message displayed on the screen to indicate the completion of a purchase.
+    <img src="images/complete.png" alt="complete" width="500" />
 
 ## Tech Stack
 
@@ -37,9 +29,6 @@ An Online Bookstore web application built using JSP and Servlet technology that 
 - Apache Tomcat as the server
 - HTML, CSS, JavaScript for the frontend
 
-## Deployment
-
-The application is containerized using Docker for easier deployment and scalability.
 
 ## Installation Instructions
 
