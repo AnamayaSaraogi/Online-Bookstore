@@ -7,113 +7,96 @@
         
         <style>
             body {
-                font-family: 'Arial', sans-serif;
-                background-color: #2c3e50;
-                margin: 0;
-                padding: 0;
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
                 display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                color: #ecf0f1;
+                justify-content: center; /* Center the flex container horizontally */
+                align-items: center; /* Center the flex container vertically */
+                height: 100vh; /* Ensure that the content fills the screen */
+                margin: 0;
             }
-
+            
             .container {
-                background-color: #34495e;
-                padding: 50px;
-                border-radius: 12px;
-                box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
-                max-width: 400px;
-                width: 100%;
-                text-align: center;
+                display: flex;
+                align-items: center; /* Align items (headings and form) vertically */
+                gap: 50px; /* Add space between the headings and the form */
             }
 
-            h1 {
-                font-size: 36px;
-                margin-bottom: 10px;
-                color: #ecf0f1;
+            .headings {
+                text-align: right; /* Align text to the right for headings */
             }
 
-            h2 {
-                font-size: 16px;
-                font-weight: 400;
-                margin-bottom: 30px;
-                color: #bdc3c7;
+            h1, h2 {
+                margin: 0; /* Remove default margin for h1 and h2 */
+                color: #333;
             }
 
             form {
-                width: 100%;
+                background-color: #fff;
+                padding: 20px; /* Space between form content and its borders */
+                border-radius: 10px; /* Rounding the edges */
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 280px;
+                text-align: center; /* Center the text inside the form */
             }
 
             input[type="text"], input[type="password"], input[type="email"] {
-                width: 100%;
-                padding: 12px;
+                width: calc(100% - 20px);
+                padding: 10px;
                 margin: 10px 0;
-                border: 2px solid #bdc3c7;
-                border-radius: 6px;
-                background-color: #ecf0f1;
-                font-size: 16px;
-                color: #2c3e50;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 14px;
             }
 
             input[type="submit"] {
-                width: 100%;
-                padding: 12px;
-                background-color: #e74c3c;
-                border: none;
-                border-radius: 6px;
-                font-size: 18px;
+                width: calc(100% - 20px);
+                padding: 10px;
+                background-color: #007BFF;
                 color: white;
+                border: none;
+                border-radius: 5px;
                 cursor: pointer;
-                margin-top: 15px;
+                font-size: 16px;
             }
 
             input[type="submit"]:hover {
-                background-color: #c0392b;
+                background-color: #0056b3;
             }
 
             a {
-                color: #ecf0f1;
+                color: black;
                 text-decoration: none;
-                font-size: 14px;
-                margin-top: 20px;
+                margin-top: 15px;
                 display: inline-block;
             }
 
             a:hover {
                 text-decoration: underline;
             }
-
-            @media screen and (max-width: 600px) {
-                .container {
-                    padding: 30px;
-                }
-
-                h1 {
-                    font-size: 28px;
-                }
-
-                input[type="submit"] {
-                    font-size: 16px;
-                }
-            }
         </style>
             
     </head>
     <body>
+    <center>
+         
+        
         <div class="container">
             <div class="headings">
-                <h1>Welcome</h1>
-                <h2>Create Your Account</h2>
+                <h1>WELCOME USER</h1><br>
+                <h2>Please enter your details to create account</h2>
             </div>
-            <form action="register" method="post">
-                <input type="text" name="username" placeholder="Enter Username" required><br>
-                <input type="password" name="pass" placeholder="Enter Password" required><br>
-                <input type="text" name="name" placeholder="Enter Name" required><br>
-                <input type="email" name="email" placeholder="Enter Email" required><br>
-                <input type="submit" value="Register">
-            </form>
-            <a href="login-swayam.jsp">Back to Log In</a>
+            <form action="register" method="post"> 
+            Enter username: <input type="text" name="username"><br><br>
+            Enter password: <input type="password" name="pass"><br><br>
+            Enter name: <input type="text" name="name"><br><br>
+            Enter email: <input type="email" name="email"><br><br>
+                                     
+            <input type="submit" value="Register">
+            <center><a href="login-swayam.jsp"> <u>Back to Log In.</u> </a></center>
+
+        </form 
+            
         </div>
     </body>
 </html>
